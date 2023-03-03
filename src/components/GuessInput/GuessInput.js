@@ -8,9 +8,6 @@ function GuessInput({ addGuess, gameEnded }) {
       className="guess-input-wrapper"
       onSubmit={(event) => {
         event.preventDefault();
-        if (guess === "") {
-          return;
-        }
         addGuess(guess.toUpperCase());
         setGuess("");
       }}
@@ -20,6 +17,8 @@ function GuessInput({ addGuess, gameEnded }) {
         id="guess-input"
         type="text"
         value={guess}
+        required
+        minLength={5}
         maxLength={5}
         pattern={"[a-zA-Z]{5}"}
         disabled={gameEnded}
