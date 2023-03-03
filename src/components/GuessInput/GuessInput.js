@@ -9,7 +9,7 @@ function GuessInput({ addGuess }) {
       onSubmit={(event) => {
         event.preventDefault();
         console.log({ guess });
-        addGuess({ id: crypto.randomUUID(), value: guess });
+        addGuess({ id: crypto.randomUUID(), value: guess.toUpperCase() });
         setGuess("");
       }}
     >
@@ -20,7 +20,7 @@ function GuessInput({ addGuess }) {
         value={guess}
         maxLength={5}
         pattern={"[a-zA-Z]{5}"}
-        onChange={(event) => setGuess(event.target.value)}
+        onChange={(event) => setGuess(event.target.value.toUpperCase())}
       />
     </form>
   );
